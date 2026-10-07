@@ -15,8 +15,8 @@ guidelines and information for contributors.
 
 ```bash
 # Clone the repository
-git clone https://github.com/bicut-project/bicut.git
-cd bicut/implementation
+git clone https://github.com/thehalleyyoung/bilevel-compiler-intersection-cuts.git
+cd bilevel-compiler-intersection-cuts/implementation
 
 # Build the project
 cargo build
@@ -63,7 +63,7 @@ Use conventional commits:
 ```
 feat: add CPLEX backend emission
 fix: correct big-M computation for degenerate LPs
-docs: update CLI reference for cut-loop command
+docs: update CLI reference for the compile command
 test: add roundtrip verification for KKT pass
 refactor: extract common emission logic
 ```
@@ -74,14 +74,14 @@ BiCut is a Rust workspace with nine crates:
 
 | Crate | Purpose |
 |-------|---------|
-| `bicut-types` | Core types: IR, problem definitions, certificates |
-| `bicut-core` | Structural analysis, CQ verification, reformulation selection |
+| `bicut-types` | Core types: problem definitions, sparse matrices |
+| `bicut-core` | Structural analysis, validation |
 | `bicut-lp` | LP solver (simplex, interior point, tableau) |
-| `bicut-cuts` | Intersection cuts, separation oracle, cut pool |
+| `bicut-cuts` | Cut data structures and separation routines |
 | `bicut-value-function` | Parametric LP, value function oracle |
 | `bicut-compiler` | Reformulation passes, solver emission |
 | `bicut-branch-cut` | Branch-and-cut solver framework |
-| `bicut-bench` | BOBILib benchmark harness |
+| `bicut-bench` | Benchmark instance and report types |
 | `bicut-cli` | Command-line interface |
 
 ### Adding a New Cut Family
@@ -90,7 +90,6 @@ BiCut is a Rust workspace with nine crates:
 2. Implement the cut generation logic
 3. Register with the cut manager in `bicut-cuts/src/manager.rs`
 4. Add tests with known bilevel instances
-5. Update the CLI to expose the new cut type
 
 ### Adding a New Solver Backend
 
@@ -98,6 +97,9 @@ BiCut is a Rust workspace with nine crates:
 2. Implement MPS/LP emission with solver-specific optimizations
 3. Add the backend to `BackendTarget` enum
 4. Add integration tests with the solver
+
+Python benchmarks live in `benchmarks/` and need `numpy`, `highspy` and
+`pyscipopt`.
 
 ## Testing
 
@@ -122,4 +124,4 @@ Open a GitHub Discussion or reach out to the maintainers.
 ## License
 
 By contributing, you agree that your contributions will be licensed under the
-MIT / Apache-2.0 dual license.
+MIT license (see LICENSE).
