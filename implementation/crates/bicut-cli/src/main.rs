@@ -1,7 +1,8 @@
 //! BiCut CLI — command-line interface for the BiCut bilevel optimization compiler.
 //!
-//! Provides subcommands for compiling, solving, analysing, benchmarking,
-//! verifying, and generating bilevel optimisation problems.
+//! Reads a bilevel problem in TOML and writes its high-point relaxation
+//! (all leader and follower constraints, follower optimality dropped) as
+//! an MPS or LP file.
 
 mod commands;
 mod config_file;
@@ -38,15 +39,15 @@ fn version_long() -> String {
 
 // ── CLI definition ─────────────────────────────────────────────────
 
-/// BiCut — a bilevel optimization compiler with intersection cuts.
+/// BiCut command-line interface.
 #[derive(Parser, Debug)]
 #[command(
     name = "bicut",
     version = VERSION,
-    about = "Bilevel optimization compiler with intersection cuts",
-    long_about = "BiCut compiles bilevel optimisation problems into mixed-integer \
-                  linear programs, solves them with branch-and-cut, and generates \
-                  verifiable optimality certificates.",
+    about = "Read a bilevel problem (TOML) and write its high-point relaxation",
+    long_about = "BiCut parses a bilevel optimisation problem written in TOML and \
+                  writes its high-point relaxation (leader and follower constraints, \
+                  follower optimality dropped) as an MPS or LP file.",
     after_help = "Use `bicut <command> --help` for more information on each command."
 )]
 pub struct Cli {
@@ -116,26 +117,8 @@ pub enum OutputFormat {
 /// Top-level subcommands.
 #[derive(Subcommand, Debug)]
 pub enum Command {
-    /// Compile a bilevel problem to a single-level MILP reformulation.
+    /// Write the high-point relaxation of a bilevel problem as MPS or LP.
     Compile(commands::CompileArgs),
-
-    /// Compile and solve a bilevel problem.
-    Solve(commands::SolveArgs),
-
-    /// Perform structural analysis on a bilevel problem.
-    Analyze(commands::AnalyzeArgs),
-
-    /// Run benchmarks on a suite of problem instances.
-    Benchmark(commands::BenchmarkArgs),
-
-    /// Verify an optimality certificate for a bilevel solution.
-    Verify(commands::VerifyArgs),
-
-    /// Generate random bilevel problem instances.
-    Generate(commands::GenerateArgs),
-
-    /// Enter interactive exploration mode.
-    Interactive(commands::InteractiveArgs),
 
     /// Print a default configuration file to stdout.
     InitConfig,
@@ -228,12 +211,6 @@ fn dispatch(cli: Cli) -> Result<()> {
 
     match cli.command {
         Command::Compile(args) => commands::run_compile(args, &ctx),
-        Command::Solve(args) => commands::run_solve(args, &ctx),
-        Command::Analyze(args) => commands::run_analyze(args, &ctx),
-        Command::Benchmark(args) => commands::run_benchmark(args, &ctx),
-        Command::Verify(args) => commands::run_verify(args, &ctx),
-        Command::Generate(args) => commands::run_generate(args, &ctx),
-        Command::Interactive(args) => interactive::run_interactive(args, &ctx),
         Command::InitConfig => {
             let default_cfg = BiCutConfig::default();
             let toml_str =
@@ -309,26 +286,11 @@ mod tests {
     }
 
     #[test]
-    fn test_cli_parses_solve() {
-        let args = vec!["bicut", "solve", "--input", "problem.json"];
-        let cli = Cli::try_parse_from(args);
-        assert!(cli.is_ok(), "solve subcommand should parse");
-    }
-
-    #[test]
-    fn test_cli_parses_generate() {
-        let args = vec![
-            "bicut",
-            "generate",
-            "--num-upper",
-            "3",
-            "--num-lower",
-            "4",
-            "--num-constraints",
-            "5",
-        ];
-        let cli = Cli::try_parse_from(args);
-        assert!(cli.is_ok(), "generate subcommand should parse");
+    fn test_cli_rejects_removed_subcommands() {
+        for sub in ["solve", "analyze", "benchmark", "verify", "generate", "interactive"] {
+            let cli = Cli::try_parse_from(vec!["bicut", sub, "--input", "problem.toml"]);
+            assert!(cli.is_err(), "{sub} should not be a subcommand");
+        }
     }
 
     #[test]

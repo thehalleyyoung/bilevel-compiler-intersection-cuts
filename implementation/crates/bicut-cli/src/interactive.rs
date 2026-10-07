@@ -361,54 +361,7 @@ impl InteractiveSession {
     }
 
     fn compile(&mut self) -> Result<()> {
-        if !matches!(
-            self.phase,
-            SessionPhase::Analyzed | SessionPhase::ProblemLoaded | SessionPhase::Compiled
-        ) {
-            if self.problem_path.is_none() {
-                bail!("No problem loaded.");
-            }
-        }
-        if matches!(self.phase, SessionPhase::ProblemLoaded) {
-            self.analyze()?;
-        }
-
-        let ref_type = match self.config.compiler.reformulation {
-            ReformulationChoice::Auto => "StrongDuality",
-            ReformulationChoice::KKT => "KKT",
-            ReformulationChoice::StrongDuality => "StrongDuality",
-            ReformulationChoice::ValueFunction => "ValueFunction",
-            ReformulationChoice::CCG => "CCG",
-        };
-
-        let compiled_vars =
-            self.num_leader_vars + self.num_follower_vars * 2 + self.num_constraints;
-        let compiled_cstrs = self.num_constraints * 2 + self.num_follower_vars;
-
-        self.ir_summary = Some(format!(
-            "IR({}, {} vars ({} int), {} constrs)",
-            ref_type, compiled_vars, 0, compiled_cstrs
-        ));
-        self.certificate_summary = Some(format!(
-            "Certificate(valid=true, reformulation={}, all checks passed)",
-            ref_type
-        ));
-        self.phase = SessionPhase::Compiled;
-
-        println!("Compiled using {} reformulation:", ref_type);
-        println!(
-            "  Variables:   {} (original: {})",
-            compiled_vars,
-            self.num_leader_vars + self.num_follower_vars
-        );
-        println!(
-            "  Constraints: {} (original: {})",
-            compiled_cstrs, self.num_constraints
-        );
-        if self.config.compiler.certificate_generation {
-            println!("  Certificate: generated and valid");
-        }
-        Ok(())
+        bail!("compilation is not available in interactive mode; use `bicut compile`")
     }
 
     fn set_config(&mut self, key: &str, val: &str) -> Result<()> {

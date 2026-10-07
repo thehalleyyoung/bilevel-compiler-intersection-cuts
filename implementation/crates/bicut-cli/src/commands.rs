@@ -726,7 +726,11 @@ fn emit_problem(
     let milp = build_milp_problem(problem)?;
     let config = EmissionConfig {
         format,
-        use_fixed_format_mps: matches!(format, SolverOutputFormat::Mps),
+        // Free-format MPS keeps full row and column names; fixed format
+        // truncates them to 8 characters, which made distinct rows such as
+        // follower_c1 / follower_c2 collide.
+        use_fixed_format_mps: false,
+        max_name_length: 255,
         ..EmissionConfig::default()
     };
     emit(&milp, &config).map_err(|err| anyhow::anyhow!("Failed to emit solver artifact: {err}"))
@@ -737,6 +741,9 @@ fn emit_problem(
 /// Which reformulation strategy to use.
 #[derive(Debug, Clone, Copy, PartialEq, Eq, clap::ValueEnum)]
 pub enum ReformulationChoice {
+    /// High-point relaxation: every constraint kept, follower optimality dropped.
+    #[value(name = "high-point")]
+    HighPoint,
     Auto,
     #[value(name = "kkt")]
     KKT,
@@ -757,12 +764,9 @@ pub struct CompileArgs {
     /// Output file path for the reformulated MILP.
     #[arg(long, short)]
     pub output: Option<PathBuf>,
-    /// Reformulation strategy.
-    #[arg(long, short, default_value = "auto")]
+    /// Output model. Only `high-point` is written by the CLI.
+    #[arg(long, short, default_value = "high-point")]
     pub reformulation: ReformulationChoice,
-    /// Generate a correctness certificate.
-    #[arg(long, default_value_t = false)]
-    pub certificate: bool,
 }
 
 /// Arguments for the `solve` subcommand.
@@ -843,7 +847,7 @@ pub fn run_compile(args: CompileArgs, ctx: &RunContext) -> Result<()> {
     if let Some(output) = args.output.clone() {
         command = command.with_output(output);
     }
-    command.generate_certificate = args.certificate;
+    command.generate_certificate = false;
 
     let result = command.execute()?;
     let content = match ctx.format {
@@ -933,9 +937,9 @@ impl CompileCommand {
         Self {
             input_path: input,
             output_path: None,
-            reformulation: ReformulationChoice::Auto,
+            reformulation: ReformulationChoice::HighPoint,
             output_format: "mps".to_string(),
-            generate_certificate: true,
+            generate_certificate: false,
             verbose: false,
         }
     }
@@ -981,13 +985,17 @@ impl CompileCommand {
             analysis_result.coupling
         );
 
-        let reformulation_name = match self.reformulation {
-            ReformulationChoice::Auto => select_reformulation(&analysis_result),
-            ReformulationChoice::KKT => "KKT".to_string(),
-            ReformulationChoice::StrongDuality => "StrongDuality".to_string(),
-            ReformulationChoice::ValueFunction => "ValueFunction".to_string(),
-            ReformulationChoice::CCG => "CCG".to_string(),
-        };
+        // The CLI writes the constraint system of the problem as parsed. That
+        // model is the high-point relaxation; the reformulation passes in
+        // bicut-compiler are not connected to this command.
+        if self.reformulation != ReformulationChoice::HighPoint {
+            bail!(
+                "the CLI writes only the high-point relaxation (--reformulation high-point); \
+                 '{:?}' is not available from the command line",
+                self.reformulation
+            );
+        }
+        let reformulation_name = "HighPointRelaxation".to_string();
         log::info!("Selected reformulation: {}", reformulation_name);
 
         let output_path = self.output_path.clone().unwrap_or_else(|| {
@@ -1001,34 +1009,15 @@ impl CompileCommand {
 
         let output_format = output_format_from_path(&output_path);
         let emission = emit_problem(&problem, output_format)?;
-        let certificate_json = if self.generate_certificate {
-            Some(serde_json::to_string_pretty(&serde_json::json!({
-                "problem": problem.name,
-                "reformulation": reformulation_name,
-                "format": output_format.to_string(),
-                "valid": true,
-                "num_variables": emission.num_vars_written,
-                "num_constraints": emission.num_constraints_written,
-            }))?)
-        } else {
-            None
-        };
-
         std::fs::write(&output_path, &emission.content)
             .with_context(|| format!("Failed to write output to {:?}", output_path))?;
-
-        if let Some(ref cert) = certificate_json {
-            let cert_path = output_path.with_extension("cert.json");
-            std::fs::write(&cert_path, cert)?;
-            log::info!("Certificate written to {:?}", cert_path);
-        }
 
         Ok(CompileResult {
             output_path,
             reformulation: reformulation_name,
             num_variables: emission.num_vars_written,
             num_constraints: emission.num_constraints_written,
-            certificate_generated: self.generate_certificate,
+            certificate_generated: false,
         })
     }
 }
@@ -1083,68 +1072,12 @@ impl SolveCommand {
     }
 
     pub fn execute(&self) -> Result<SolveResult> {
-        log::info!("Solving bilevel problem from {:?}", self.input_path);
-
-        let input_data = std::fs::read_to_string(&self.input_path)
-            .with_context(|| format!("Failed to read input: {:?}", self.input_path))?;
-
-        let problem: BilevelProblem =
-            serde_json::from_str(&input_data).with_context(|| "Failed to parse problem JSON")?;
-
-        let dims = problem.dimensions();
-        log::info!(
-            "Problem: {} vars, {} constraints",
-            dims.total_vars,
-            dims.total_constraints
-        );
-
-        let status = if dims.total_vars == 0 {
-            SolutionStatus::Infeasible
-        } else {
-            SolutionStatus::Optimal
-        };
-
-        let objective = if status == SolutionStatus::Optimal {
-            Some(0.0)
-        } else {
-            None
-        };
-
-        let solve_time = 0.01;
-        let nodes = if dims.total_vars > 10 { 100 } else { 1 };
-        let cuts = if self.enable_cuts {
-            dims.total_constraints
-        } else {
-            0
-        };
-
-        let result = SolveResult {
-            status,
-            objective_value: objective,
-            solve_time_secs: solve_time,
-            nodes_explored: nodes as u64,
-            cuts_generated: cuts as u64,
-            gap: if status == SolutionStatus::Optimal {
-                0.0
-            } else {
-                f64::INFINITY
-            },
-        };
-
-        if let Some(ref out_path) = self.output_solution {
-            let sol_json = serde_json::to_string_pretty(&SolveResultSer {
-                status: format!("{}", result.status),
-                objective: result.objective_value,
-                solve_time: result.solve_time_secs,
-                nodes: result.nodes_explored,
-                cuts: result.cuts_generated,
-                gap: result.gap,
-            })?;
-            std::fs::write(out_path, sol_json)?;
-        }
-
-        Ok(result)
+        bail!(
+            "solving is not available in bicut-cli; write the model with `bicut compile` \
+             and solve it with an external MILP solver"
+        )
     }
+
 }
 
 #[derive(Debug, Clone, serde::Serialize)]
@@ -1851,9 +1784,9 @@ y = { lower = 0.0 }
 
         let mut command = CompileCommand::new(input_path.clone())
             .with_output(output_path.clone())
-            .with_reformulation(ReformulationChoice::KKT);
-        command.generate_certificate = false;
+            .with_reformulation(ReformulationChoice::HighPoint);
         let result = command.execute().unwrap();
+        assert_eq!(result.reformulation, "HighPointRelaxation");
 
         let mps = std::fs::read_to_string(&output_path).unwrap();
         assert_eq!(result.output_path, output_path);
@@ -1863,9 +1796,18 @@ y = { lower = 0.0 }
         assert!(mps.contains("ENDATA"));
         assert!(mps.len() > 100);
 
-        let parsed = parse_mps_string(&mps, MpsFormat::Fixed).unwrap();
+        let parsed = parse_mps_string(&mps, MpsFormat::Free).unwrap();
         assert_eq!(parsed.variables.len(), 2);
         assert_eq!(parsed.constraints.len(), 3);
+        assert!(mps.contains("upper_bound") && mps.contains("c1") && mps.contains("c2"));
+
+        // Reformulations other than the high-point relaxation are refused
+        // instead of silently writing the relaxation under another name.
+        let refused = CompileCommand::new(input_path.clone())
+            .with_output(output_path.clone())
+            .with_reformulation(ReformulationChoice::KKT)
+            .execute();
+        assert!(refused.is_err());
 
         let _ = std::fs::remove_file(&input_path);
         let _ = std::fs::remove_file(&output_path);
