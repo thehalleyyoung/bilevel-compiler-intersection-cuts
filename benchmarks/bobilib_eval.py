@@ -15,8 +15,9 @@ Methods (all solved with SCIP through PySCIPOpt):
                objective over follower-optimal responses). A no-good
                constraint then removes x^ from the HPR. The loop stops when the
                HPR bound reaches the incumbent or the HPR becomes infeasible,
-               which proves optimality. It requires a pure-integer leader
-               with finite bounds; all 20 instances satisfy this.
+               which proves optimality. The checked KKT objective, when
+               available, is the starting incumbent. It requires a
+               pure-integer leader with finite bounds.
 
 Every objective is compared with the optimum BOBILib reports for the
 instance. Results go to bobilib_results/bobilib_eval.json.
@@ -350,7 +351,13 @@ def optimistic_value_at(mps, lower_vars, lower_obj, lower_constrs, x_lead, time_
     return None, phi, st == 'infeasible'
 
 
-def solve_enumeration(mps, lower_vars, lower_obj, lower_constrs, time_limit, max_iters=500):
+def solve_enumeration(mps, lower_vars, lower_obj, lower_constrs, time_limit, max_iters=500,
+                      incumbent=None):
+    """Exact loop described in the module docstring.
+
+    incumbent, if given, is the objective of a solution already checked to be
+    bilevel feasible; it is used as the starting upper bound.
+    """
     from pyscipopt import Model, quicksum
     t0 = time.time()
     lower_set = set(lower_vars)
@@ -387,7 +394,7 @@ def solve_enumeration(mps, lower_vars, lower_obj, lower_constrs, time_limit, max
         elif s == 'G': m.addCons(lhs >= rval)
         elif s == 'E': m.addCons(lhs == rval)
 
-    best, best_x, proved, iters, lb, all_exact = None, None, False, 0, None, True
+    best, best_x, proved, iters, lb, all_exact = incumbent, None, False, 0, None, True
     while iters < max_iters:
         remaining = time_limit - (time.time() - t0)
         if remaining < 1.0:
@@ -476,9 +483,11 @@ def main():
     instance_list = instance_list[:MAX]
     TL = args.time_limit
 
+    kkt_incumbent = [None]   # checked KKT objective, passed to the enumeration
     methods = [
         ("KKT",         lambda mps, lv, lo, lc: solve_kkt_checked(mps, lv, lo, lc, TL)),
-        ("Enumeration", lambda mps, lv, lo, lc: solve_enumeration(mps, lv, lo, lc, TL)),
+        ("Enumeration", lambda mps, lv, lo, lc: solve_enumeration(
+            mps, lv, lo, lc, TL, incumbent=kkt_incumbent[0])),
     ]
 
     print("=" * 100)
@@ -504,6 +513,7 @@ def main():
               f"(v={len(mps['cols'])} lv={len(lower_vars)} lint={n_lint} opt={known_obj})")
 
         row = {'name': name, 'known_obj': known_obj, 'methods': {}}
+        kkt_incumbent[0] = None
 
         for mname, fn in methods:
             try:
@@ -518,6 +528,8 @@ def main():
                 gap = abs(obj - known_obj) / max(1.0, abs(known_obj)) if abs(known_obj) > 1e-8 else abs(obj - known_obj)
             r['gap'] = gap
             row['methods'][mname] = r
+            if mname == "KKT" and r.get('bilevel_feasible'):
+                kkt_incumbent[0] = obj
 
             obj_s = f"{obj:.2f}" if obj is not None else "None"
             gap_s = f"{gap:.1e}" if gap is not None else "---"
@@ -538,7 +550,8 @@ def main():
     print(f"\n{'Method':12s} {'=opt':>6s} {'<=1%':>6s} {'proved':>7s} {'feasible':>9s} {'AvgTime':>8s}")
     for mn in mnames:
         rs = [r['methods'].get(mn, {}) for r in all_results]
-        exact = sum(1 for x in rs if x.get('gap') is not None and x['gap'] <= 1e-6)
+        # BOBILib reports optima to six decimals, hence the 1e-5 tolerance.
+        exact = sum(1 for x in rs if x.get('gap') is not None and x['gap'] <= 1e-5)
         within = sum(1 for x in rs if x.get('gap') is not None and x['gap'] <= 0.01)
         proved = sum(1 for x in rs if x.get('proved_optimal'))
         feas = sum(1 for x in rs if x.get('bilevel_feasible'))
