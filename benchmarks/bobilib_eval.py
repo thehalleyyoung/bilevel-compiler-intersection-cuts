@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """BOBILib evaluation: KKT on the LP-relaxed follower versus an exact
-leader-enumeration loop, on the first 20 entries of bobilib/instance_list.json.
+leader-enumeration loop, on the instances in bobilib/instance_list.json
+(the first 20 by default; --max selects more).
 
 Methods (all solved with SCIP through PySCIPOpt):
 

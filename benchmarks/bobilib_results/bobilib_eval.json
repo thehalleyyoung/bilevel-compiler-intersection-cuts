@@ -1,0 +1,1941 @@
+{
+  "summary": {
+    "instances": 80,
+    "time_limit_s": 60.0,
+    "methods": {
+      "KKT": {
+        "matches_bobilib_optimum": 16,
+        "within_1pct": 19,
+        "proved_optimal": 0,
+        "checked_bilevel_feasible": 65,
+        "mean_time_s": 10.182701578736305
+      },
+      "Enumeration": {
+        "matches_bobilib_optimum": 49,
+        "within_1pct": 50,
+        "proved_optimal": 35,
+        "checked_bilevel_feasible": 0,
+        "mean_time_s": 36.11892709732056
+      }
+    }
+  },
+  "instances": [
+    {
+      "name": "moore90_2",
+      "known_obj": 5.0,
+      "methods": {
+        "KKT": {
+          "time": 0.001592874526977539,
+          "nodes": 0,
+          "status": "optimal",
+          "objective": 6.0,
+          "bilevel_feasible": true,
+          "gap": 0.2
+        },
+        "Enumeration": {
+          "status": "optimal",
+          "objective": 5.0,
+          "proved_optimal": true,
+          "lower_bound": 5.0,
+          "time": 0.113037109375,
+          "nodes": 0,
+          "iterations": 2,
+          "gap": 0.0
+        }
+      }
+    },
+    {
+      "name": "moore90",
+      "known_obj": -22.0,
+      "methods": {
+        "KKT": {
+          "time": 0.0012400150299072266,
+          "nodes": 0,
+          "status": "optimal",
+          "objective": -18.0,
+          "bilevel_feasible": true,
+          "gap": 0.18181818181818182
+        },
+        "Enumeration": {
+          "status": "optimal",
+          "objective": -22.0,
+          "proved_optimal": true,
+          "lower_bound": -21.0,
+          "time": 0.5161960124969482,
+          "nodes": 0,
+          "iterations": 5,
+          "gap": 0.0
+        }
+      }
+    },
+    {
+      "name": "linderoth",
+      "known_obj": -2.0,
+      "methods": {
+        "KKT": {
+          "time": 0.0022840499877929688,
+          "nodes": 1,
+          "status": "optimal",
+          "objective": 0.0,
+          "bilevel_feasible": true,
+          "gap": 1.0
+        },
+        "Enumeration": {
+          "status": "optimal",
+          "objective": -2.0,
+          "proved_optimal": true,
+          "lower_bound": -66.0,
+          "time": 0.7166199684143066,
+          "nodes": 0,
+          "iterations": 9,
+          "gap": 0.0
+        }
+      }
+    },
+    {
+      "name": "knapsack",
+      "known_obj": 0.0,
+      "methods": {
+        "KKT": {
+          "time": 0.23934006690979004,
+          "nodes": 16,
+          "status": "optimal",
+          "objective": 1.0,
+          "bilevel_feasible": true,
+          "gap": 1.0
+        },
+        "Enumeration": {
+          "status": "optimal",
+          "objective": 0.0,
+          "proved_optimal": true,
+          "lower_bound": 1.0,
+          "time": 0.1196589469909668,
+          "nodes": 0,
+          "iterations": 1,
+          "gap": 0.0
+        }
+      }
+    },
+    {
+      "name": "milp_4_20_10_0110",
+      "known_obj": -375.0,
+      "methods": {
+        "KKT": {
+          "time": 0.003756999969482422,
+          "nodes": 1,
+          "status": "optimal",
+          "objective": -375.0,
+          "bilevel_feasible": true,
+          "gap": 0.0
+        },
+        "Enumeration": {
+          "status": "unsupported",
+          "objective": null,
+          "time": 0.0,
+          "nodes": 0,
+          "gap": null
+        }
+      }
+    },
+    {
+      "name": "p0033-0.100000",
+      "known_obj": 3089.0,
+      "methods": {
+        "KKT": {
+          "time": 0.5723037719726562,
+          "nodes": 1,
+          "status": "optimal",
+          "objective": 3088.9999999999995,
+          "bilevel_feasible": true,
+          "gap": 1.4721506988878736e-16
+        },
+        "Enumeration": {
+          "status": "optimal",
+          "objective": 3088.9999999999995,
+          "proved_optimal": true,
+          "lower_bound": 3089.0,
+          "time": 0.43956613540649414,
+          "nodes": 0,
+          "iterations": 0,
+          "gap": 1.4721506988878736e-16
+        }
+      }
+    },
+    {
+      "name": "p0033-0.500000",
+      "known_obj": 3095.0,
+      "methods": {
+        "KKT": {
+          "time": 0.9281792640686035,
+          "nodes": 1,
+          "status": "optimal",
+          "objective": 3188.0,
+          "bilevel_feasible": true,
+          "gap": 0.030048465266558966
+        },
+        "Enumeration": {
+          "status": "optimal",
+          "objective": 3095.0,
+          "proved_optimal": true,
+          "lower_bound": 3095.0,
+          "time": 3.706667184829712,
+          "nodes": 0,
+          "iterations": 10,
+          "gap": 0.0
+        }
+      }
+    },
+    {
+      "name": "p0033-0.900000",
+      "known_obj": 4679.0,
+      "methods": {
+        "KKT": {
+          "time": 1.3538849353790283,
+          "nodes": 1,
+          "status": "infeasible",
+          "objective": null,
+          "bilevel_feasible": null,
+          "gap": null
+        },
+        "Enumeration": {
+          "status": "optimal",
+          "objective": 4679.0,
+          "proved_optimal": true,
+          "lower_bound": 3615.9999999999995,
+          "time": 2.5451560020446777,
+          "nodes": 0,
+          "iterations": 8,
+          "gap": 0.0
+        }
+      }
+    },
+    {
+      "name": "bmilplib_10_4",
+      "known_obj": -250.0,
+      "methods": {
+        "KKT": {
+          "time": 0.08164119720458984,
+          "nodes": 1,
+          "status": "optimal",
+          "objective": -250.0,
+          "bilevel_feasible": true,
+          "gap": 0.0
+        },
+        "Enumeration": {
+          "status": "optimal",
+          "objective": -250.0,
+          "proved_optimal": true,
+          "lower_bound": -246.0,
+          "time": 0.8096699714660645,
+          "nodes": 0,
+          "iterations": 4,
+          "gap": 0.0
+        }
+      }
+    },
+    {
+      "name": "bmilplib_10_1",
+      "known_obj": -351.833333,
+      "methods": {
+        "KKT": {
+          "time": 0.04383587837219238,
+          "nodes": 1,
+          "status": "optimal",
+          "objective": -343.00000000000006,
+          "bilevel_feasible": true,
+          "gap": 0.02510658363344989
+        },
+        "Enumeration": {
+          "status": "optimal",
+          "objective": -351.83419750000024,
+          "proved_optimal": true,
+          "lower_bound": -347.49999999999994,
+          "time": 0.08709406852722168,
+          "nodes": 0,
+          "iterations": 1,
+          "gap": 2.45712932566743e-06
+        }
+      }
+    },
+    {
+      "name": "bmilplib_10_8",
+      "known_obj": -66.5,
+      "methods": {
+        "KKT": {
+          "time": 0.15259337425231934,
+          "nodes": 0,
+          "status": "optimal",
+          "objective": -66.50000000000003,
+          "bilevel_feasible": true,
+          "gap": 4.2739412677299257e-16
+        },
+        "Enumeration": {
+          "status": "feasible",
+          "objective": -66.50000000000003,
+          "proved_optimal": false,
+          "lower_bound": -114.28571428571428,
+          "time": 60.00286078453064,
+          "nodes": 0,
+          "iterations": 26,
+          "gap": 4.2739412677299257e-16
+        }
+      }
+    },
+    {
+      "name": "bmilplib_10_5",
+      "known_obj": -263.6,
+      "methods": {
+        "KKT": {
+          "time": 0.34914183616638184,
+          "nodes": 10,
+          "status": "optimal",
+          "objective": -263.6,
+          "bilevel_feasible": true,
+          "gap": 0.0
+        },
+        "Enumeration": {
+          "status": "feasible",
+          "objective": -263.6000924333333,
+          "proved_optimal": false,
+          "lower_bound": -291.0,
+          "time": 60.07624697685242,
+          "nodes": 0,
+          "iterations": 20,
+          "gap": 3.506575618104295e-07
+        }
+      }
+    },
+    {
+      "name": "bmilplib_10_2",
+      "known_obj": -229.0,
+      "methods": {
+        "KKT": {
+          "time": 0.41080331802368164,
+          "nodes": 15,
+          "status": "optimal",
+          "objective": -229.0,
+          "bilevel_feasible": true,
+          "gap": 0.0
+        },
+        "Enumeration": {
+          "status": "optimal",
+          "objective": -229.0,
+          "proved_optimal": true,
+          "lower_bound": -229.0,
+          "time": 3.316934108734131,
+          "nodes": 0,
+          "iterations": 3,
+          "gap": 0.0
+        }
+      }
+    },
+    {
+      "name": "bmilplib_10_7",
+      "known_obj": -224.0,
+      "methods": {
+        "KKT": {
+          "time": 0.26591014862060547,
+          "nodes": 29,
+          "status": "optimal",
+          "objective": -224.0,
+          "bilevel_feasible": true,
+          "gap": 0.0
+        },
+        "Enumeration": {
+          "status": "feasible",
+          "objective": -224.0,
+          "proved_optimal": false,
+          "lower_bound": -249.59999999999997,
+          "time": 60.015498876571655,
+          "nodes": 0,
+          "iterations": 20,
+          "gap": 0.0
+        }
+      }
+    },
+    {
+      "name": "bmilplib_10_9",
+      "known_obj": -79.0,
+      "methods": {
+        "KKT": {
+          "time": 1.1485750675201416,
+          "nodes": 1,
+          "status": "optimal",
+          "objective": -75.00000000000011,
+          "bilevel_feasible": true,
+          "gap": 0.050632911392403626
+        },
+        "Enumeration": {
+          "status": "optimal",
+          "objective": -79.00000000000001,
+          "proved_optimal": true,
+          "lower_bound": -78.0,
+          "time": 3.8133771419525146,
+          "nodes": 0,
+          "iterations": 6,
+          "gap": 1.7988423690129118e-16
+        }
+      }
+    },
+    {
+      "name": "bmilplib_10_3",
+      "known_obj": -437.0,
+      "methods": {
+        "KKT": {
+          "time": 0.4532790184020996,
+          "nodes": 57,
+          "status": "optimal",
+          "objective": -412.0,
+          "bilevel_feasible": true,
+          "gap": 0.057208237986270026
+        },
+        "Enumeration": {
+          "status": "feasible",
+          "objective": -412.0,
+          "proved_optimal": false,
+          "lower_bound": -524.6,
+          "time": 60.012582778930664,
+          "nodes": 0,
+          "iterations": 14,
+          "gap": 0.057208237986270026
+        }
+      }
+    },
+    {
+      "name": "bmilplib_10_6",
+      "known_obj": -67.0,
+      "methods": {
+        "KKT": {
+          "time": 0.3589959144592285,
+          "nodes": 112,
+          "status": "optimal",
+          "objective": -67.0,
+          "bilevel_feasible": true,
+          "gap": 0.0
+        },
+        "Enumeration": {
+          "status": "feasible",
+          "objective": -67.0,
+          "proved_optimal": false,
+          "lower_bound": -150.00000000000014,
+          "time": 60.000375747680664,
+          "nodes": 0,
+          "iterations": 30,
+          "gap": 0.0
+        }
+      }
+    },
+    {
+      "name": "bmilplib_10_10",
+      "known_obj": -444.333333,
+      "methods": {
+        "KKT": {
+          "time": 0.23871397972106934,
+          "nodes": 1,
+          "status": "optimal",
+          "objective": -444.3333333333333,
+          "bilevel_feasible": true,
+          "gap": 7.501875455554616e-10
+        },
+        "Enumeration": {
+          "status": "feasible",
+          "objective": -444.3333333333333,
+          "proved_optimal": false,
+          "lower_bound": -482.0,
+          "time": 59.455055713653564,
+          "nodes": 0,
+          "iterations": 17,
+          "gap": 7.501875455554616e-10
+        }
+      }
+    },
+    {
+      "name": "miblp_20_15_50_0110_10_7",
+      "known_obj": -260.0,
+      "methods": {
+        "KKT": {
+          "time": 0.01358795166015625,
+          "nodes": 1,
+          "status": "optimal",
+          "objective": -255.0,
+          "bilevel_feasible": true,
+          "gap": 0.019230769230769232
+        },
+        "Enumeration": {
+          "status": "optimal",
+          "objective": -260.0,
+          "proved_optimal": true,
+          "lower_bound": -257.0,
+          "time": 4.436668872833252,
+          "nodes": 0,
+          "iterations": 17,
+          "gap": 0.0
+        }
+      }
+    },
+    {
+      "name": "miblp_20_15_50_0110_10_5",
+      "known_obj": -281.0,
+      "methods": {
+        "KKT": {
+          "time": 1.3221120834350586,
+          "nodes": 161,
+          "status": "optimal",
+          "objective": -214.0,
+          "bilevel_feasible": true,
+          "gap": 0.23843416370106763
+        },
+        "Enumeration": {
+          "status": "optimal",
+          "objective": -281.0,
+          "proved_optimal": true,
+          "lower_bound": -277.0,
+          "time": 10.007186889648438,
+          "nodes": 0,
+          "iterations": 8,
+          "gap": 0.0
+        }
+      }
+    },
+    {
+      "name": "miblp_20_15_50_0110_10_2",
+      "known_obj": -398.0,
+      "methods": {
+        "KKT": {
+          "time": 8.82389783859253,
+          "nodes": 2934,
+          "status": "optimal",
+          "objective": -60.0,
+          "bilevel_feasible": true,
+          "gap": 0.8492462311557789
+        },
+        "Enumeration": {
+          "status": "feasible",
+          "objective": -242.0,
+          "proved_optimal": false,
+          "lower_bound": -634.0,
+          "time": 60.00695300102234,
+          "nodes": 0,
+          "iterations": 24,
+          "gap": 0.39195979899497485
+        }
+      }
+    },
+    {
+      "name": "miblp_20_15_50_0110_10_10",
+      "known_obj": -206.0,
+      "methods": {
+        "KKT": {
+          "time": 3.1008141040802,
+          "nodes": 1521,
+          "status": "optimal",
+          "objective": 46.0,
+          "bilevel_feasible": true,
+          "gap": 1.2233009708737863
+        },
+        "Enumeration": {
+          "status": "feasible",
+          "objective": -206.0,
+          "proved_optimal": false,
+          "lower_bound": -237.0,
+          "time": 59.82919716835022,
+          "nodes": 0,
+          "iterations": 34,
+          "gap": 0.0
+        }
+      }
+    },
+    {
+      "name": "miblp_20_15_50_0110_10_9",
+      "known_obj": -635.0,
+      "methods": {
+        "KKT": {
+          "time": 3.7796521186828613,
+          "nodes": 977,
+          "status": "optimal",
+          "objective": -519.0,
+          "bilevel_feasible": true,
+          "gap": 0.1826771653543307
+        },
+        "Enumeration": {
+          "status": "feasible",
+          "objective": -619.0,
+          "proved_optimal": false,
+          "lower_bound": -682.0,
+          "time": 60.00022912025452,
+          "nodes": 0,
+          "iterations": 28,
+          "gap": 0.025196850393700787
+        }
+      }
+    },
+    {
+      "name": "miblp_20_15_50_0110_10_6",
+      "known_obj": -246.0,
+      "methods": {
+        "KKT": {
+          "time": 60.020649909973145,
+          "nodes": 15318,
+          "status": "time_limit",
+          "objective": -76.0,
+          "bilevel_feasible": false,
+          "gap": 0.6910569105691057
+        },
+        "Enumeration": {
+          "status": "optimal",
+          "objective": -246.0,
+          "proved_optimal": true,
+          "lower_bound": -246.0,
+          "time": 22.941959857940674,
+          "nodes": 0,
+          "iterations": 19,
+          "gap": 0.0
+        }
+      }
+    },
+    {
+      "name": "miblp_20_15_50_0110_10_3",
+      "known_obj": -42.0,
+      "methods": {
+        "KKT": {
+          "time": 1.4309759140014648,
+          "nodes": 604,
+          "status": "infeasible",
+          "objective": null,
+          "bilevel_feasible": null,
+          "gap": null
+        },
+        "Enumeration": {
+          "status": "feasible",
+          "objective": -42.0,
+          "proved_optimal": false,
+          "lower_bound": -84.0,
+          "time": 59.64357089996338,
+          "nodes": 0,
+          "iterations": 35,
+          "gap": 0.0
+        }
+      }
+    },
+    {
+      "name": "miblp_20_15_50_0110_10_4",
+      "known_obj": -729.0,
+      "methods": {
+        "KKT": {
+          "time": 26.009369134902954,
+          "nodes": 5245,
+          "status": "optimal",
+          "objective": -554.0,
+          "bilevel_feasible": true,
+          "gap": 0.24005486968449932
+        },
+        "Enumeration": {
+          "status": "optimal",
+          "objective": -729.0,
+          "proved_optimal": true,
+          "lower_bound": -724.0,
+          "time": 13.313802003860474,
+          "nodes": 0,
+          "iterations": 9,
+          "gap": 0.0
+        }
+      }
+    },
+    {
+      "name": "miblp_20_15_50_0110_10_1",
+      "known_obj": -388.0,
+      "methods": {
+        "KKT": {
+          "time": 3.7753288745880127,
+          "nodes": 1022,
+          "status": "optimal",
+          "objective": -193.0,
+          "bilevel_feasible": true,
+          "gap": 0.5025773195876289
+        },
+        "Enumeration": {
+          "status": "optimal",
+          "objective": -388.0,
+          "proved_optimal": true,
+          "lower_bound": -386.0,
+          "time": 4.954189777374268,
+          "nodes": 0,
+          "iterations": 5,
+          "gap": 0.0
+        }
+      }
+    },
+    {
+      "name": "miblp_20_15_50_0110_10_8",
+      "known_obj": -293.0,
+      "methods": {
+        "KKT": {
+          "time": 3.9607112407684326,
+          "nodes": 1098,
+          "status": "infeasible",
+          "objective": null,
+          "bilevel_feasible": null,
+          "gap": null
+        },
+        "Enumeration": {
+          "status": "feasible",
+          "objective": -293.0,
+          "proved_optimal": false,
+          "lower_bound": -295.0,
+          "time": 60.02594590187073,
+          "nodes": 0,
+          "iterations": 27,
+          "gap": 0.0
+        }
+      }
+    },
+    {
+      "name": "miblp_20_20_50_0110_5_3",
+      "known_obj": -477.0,
+      "methods": {
+        "KKT": {
+          "time": 0.8583159446716309,
+          "nodes": 119,
+          "status": "optimal",
+          "objective": -461.0,
+          "bilevel_feasible": true,
+          "gap": 0.033542976939203356
+        },
+        "Enumeration": {
+          "status": "optimal",
+          "objective": -477.0,
+          "proved_optimal": true,
+          "lower_bound": -474.00000000000057,
+          "time": 1.559027910232544,
+          "nodes": 0,
+          "iterations": 1,
+          "gap": 0.0
+        }
+      }
+    },
+    {
+      "name": "miblp_20_20_50_0110_5_7",
+      "known_obj": -547.0,
+      "methods": {
+        "KKT": {
+          "time": 12.025284051895142,
+          "nodes": 1518,
+          "status": "optimal",
+          "objective": -476.0,
+          "bilevel_feasible": true,
+          "gap": 0.12979890310786105
+        },
+        "Enumeration": {
+          "status": "optimal",
+          "objective": -547.0,
+          "proved_optimal": true,
+          "lower_bound": -546.0,
+          "time": 1.5216021537780762,
+          "nodes": 0,
+          "iterations": 2,
+          "gap": 0.0
+        }
+      }
+    },
+    {
+      "name": "miblp_20_20_50_0110_5_11",
+      "known_obj": -426.0,
+      "methods": {
+        "KKT": {
+          "time": 0.6746480464935303,
+          "nodes": 31,
+          "status": "optimal",
+          "objective": -426.0,
+          "bilevel_feasible": true,
+          "gap": 0.0
+        },
+        "Enumeration": {
+          "status": "optimal",
+          "objective": -426.0,
+          "proved_optimal": true,
+          "lower_bound": -426.0,
+          "time": 0.06415104866027832,
+          "nodes": 0,
+          "iterations": 0,
+          "gap": 0.0
+        }
+      }
+    },
+    {
+      "name": "miblp_20_20_50_0110_15_8",
+      "known_obj": -370.0,
+      "methods": {
+        "KKT": {
+          "time": 3.7733070850372314,
+          "nodes": 973,
+          "status": "optimal",
+          "objective": -249.0,
+          "bilevel_feasible": true,
+          "gap": 0.327027027027027
+        },
+        "Enumeration": {
+          "status": "feasible",
+          "objective": -249.0,
+          "proved_optimal": false,
+          "lower_bound": -975.0,
+          "time": 60.039008140563965,
+          "nodes": 0,
+          "iterations": 16,
+          "gap": 0.327027027027027
+        }
+      }
+    },
+    {
+      "name": "miblp_20_20_50_0110_5_2",
+      "known_obj": -591.0,
+      "methods": {
+        "KKT": {
+          "time": 0.7978160381317139,
+          "nodes": 74,
+          "status": "optimal",
+          "objective": -587.0,
+          "bilevel_feasible": true,
+          "gap": 0.00676818950930626
+        },
+        "Enumeration": {
+          "status": "feasible",
+          "objective": -587.0,
+          "proved_optimal": false,
+          "lower_bound": -840.0,
+          "time": 60.000486850738525,
+          "nodes": 0,
+          "iterations": 21,
+          "gap": 0.00676818950930626
+        }
+      }
+    },
+    {
+      "name": "miblp_20_20_50_0110_15_10",
+      "known_obj": -251.0,
+      "methods": {
+        "KKT": {
+          "time": 1.1087620258331299,
+          "nodes": 199,
+          "status": "infeasible",
+          "objective": null,
+          "bilevel_feasible": null,
+          "gap": null
+        },
+        "Enumeration": {
+          "status": "optimal",
+          "objective": -251.0,
+          "proved_optimal": true,
+          "lower_bound": -235.0,
+          "time": 9.195818185806274,
+          "nodes": 0,
+          "iterations": 13,
+          "gap": 0.0
+        }
+      }
+    },
+    {
+      "name": "miblp_20_20_50_0110_5_4",
+      "known_obj": -753.0,
+      "methods": {
+        "KKT": {
+          "time": 6.255136966705322,
+          "nodes": 967,
+          "status": "optimal",
+          "objective": -692.0,
+          "bilevel_feasible": true,
+          "gap": 0.08100929614873838
+        },
+        "Enumeration": {
+          "status": "optimal",
+          "objective": -753.0,
+          "proved_optimal": true,
+          "lower_bound": -748.0,
+          "time": 1.4274909496307373,
+          "nodes": 0,
+          "iterations": 1,
+          "gap": 0.0
+        }
+      }
+    },
+    {
+      "name": "miblp_20_20_50_0110_5_1",
+      "known_obj": -548.0,
+      "methods": {
+        "KKT": {
+          "time": 1.0369532108306885,
+          "nodes": 144,
+          "status": "optimal",
+          "objective": -535.0,
+          "bilevel_feasible": true,
+          "gap": 0.023722627737226276
+        },
+        "Enumeration": {
+          "status": "feasible",
+          "objective": -535.0,
+          "proved_optimal": false,
+          "lower_bound": -615.0,
+          "time": 60.0035297870636,
+          "nodes": 0,
+          "iterations": 15,
+          "gap": 0.023722627737226276
+        }
+      }
+    },
+    {
+      "name": "miblp_20_20_50_0110_15_6",
+      "known_obj": -596.0,
+      "methods": {
+        "KKT": {
+          "time": 60.00021505355835,
+          "nodes": 10395,
+          "status": "time_limit",
+          "objective": -415.0,
+          "bilevel_feasible": false,
+          "gap": 0.3036912751677852
+        },
+        "Enumeration": {
+          "status": "feasible",
+          "objective": -596.0,
+          "proved_optimal": false,
+          "lower_bound": -947.0,
+          "time": 60.06215691566467,
+          "nodes": 0,
+          "iterations": 17,
+          "gap": 0.0
+        }
+      }
+    },
+    {
+      "name": "miblp_20_20_50_0110_5_17",
+      "known_obj": -944.0,
+      "methods": {
+        "KKT": {
+          "time": 0.7498719692230225,
+          "nodes": 37,
+          "status": "optimal",
+          "objective": -944.0,
+          "bilevel_feasible": true,
+          "gap": 0.0
+        },
+        "Enumeration": {
+          "status": "feasible",
+          "objective": -944.0,
+          "proved_optimal": false,
+          "lower_bound": -970.0000000000001,
+          "time": 60.01926279067993,
+          "nodes": 0,
+          "iterations": 19,
+          "gap": 0.0
+        }
+      }
+    },
+    {
+      "name": "miblp_20_20_50_0110_5_14",
+      "known_obj": -923.0,
+      "methods": {
+        "KKT": {
+          "time": 9.930227994918823,
+          "nodes": 839,
+          "status": "optimal",
+          "objective": -878.0,
+          "bilevel_feasible": true,
+          "gap": 0.04875406283856988
+        },
+        "Enumeration": {
+          "status": "optimal",
+          "objective": -923.0,
+          "proved_optimal": true,
+          "lower_bound": -922.0,
+          "time": 1.8656697273254395,
+          "nodes": 0,
+          "iterations": 1,
+          "gap": 0.0
+        }
+      }
+    },
+    {
+      "name": "miblp_20_20_50_0110_5_19",
+      "known_obj": -431.0,
+      "methods": {
+        "KKT": {
+          "time": 1.859070062637329,
+          "nodes": 241,
+          "status": "optimal",
+          "objective": -421.0,
+          "bilevel_feasible": true,
+          "gap": 0.02320185614849188
+        },
+        "Enumeration": {
+          "status": "feasible",
+          "objective": -421.0,
+          "proved_optimal": false,
+          "lower_bound": -488.0,
+          "time": 60.18941116333008,
+          "nodes": 0,
+          "iterations": 17,
+          "gap": 0.02320185614849188
+        }
+      }
+    },
+    {
+      "name": "miblp_20_20_50_0110_10_4",
+      "known_obj": -604.0,
+      "methods": {
+        "KKT": {
+          "time": 13.774932146072388,
+          "nodes": 1025,
+          "status": "optimal",
+          "objective": -550.0,
+          "bilevel_feasible": true,
+          "gap": 0.08940397350993377
+        },
+        "Enumeration": {
+          "status": "feasible",
+          "objective": -579.0,
+          "proved_optimal": false,
+          "lower_bound": -872.0,
+          "time": 60.00656008720398,
+          "nodes": 0,
+          "iterations": 17,
+          "gap": 0.041390728476821195
+        }
+      }
+    },
+    {
+      "name": "miblp_20_20_50_0110_10_5",
+      "known_obj": -1003.0,
+      "methods": {
+        "KKT": {
+          "time": 1.8023312091827393,
+          "nodes": 190,
+          "status": "optimal",
+          "objective": -899.0,
+          "bilevel_feasible": true,
+          "gap": 0.1036889332003988
+        },
+        "Enumeration": {
+          "status": "optimal",
+          "objective": -1003.0,
+          "proved_optimal": true,
+          "lower_bound": -990.0,
+          "time": 1.3534631729125977,
+          "nodes": 0,
+          "iterations": 1,
+          "gap": 0.0
+        }
+      }
+    },
+    {
+      "name": "miblp_20_20_50_0110_15_9",
+      "known_obj": -584.0,
+      "methods": {
+        "KKT": {
+          "time": 1.0077168941497803,
+          "nodes": 87,
+          "status": "infeasible",
+          "objective": null,
+          "bilevel_feasible": null,
+          "gap": null
+        },
+        "Enumeration": {
+          "status": "feasible",
+          "objective": -563.0,
+          "proved_optimal": false,
+          "lower_bound": -683.0,
+          "time": 60.038739919662476,
+          "nodes": 0,
+          "iterations": 26,
+          "gap": 0.03595890410958904
+        }
+      }
+    },
+    {
+      "name": "enigma-0.100000",
+      "known_obj": 0.0,
+      "methods": {
+        "KKT": {
+          "time": 11.148045063018799,
+          "nodes": 1020,
+          "status": "optimal",
+          "objective": 0.0,
+          "bilevel_feasible": true,
+          "gap": 0.0
+        },
+        "Enumeration": {
+          "status": "optimal",
+          "objective": 0.0,
+          "proved_optimal": true,
+          "lower_bound": 0.0,
+          "time": 5.663494825363159,
+          "nodes": 0,
+          "iterations": 0,
+          "gap": 0.0
+        }
+      }
+    },
+    {
+      "name": "enigma-0.500000",
+      "known_obj": 0.0,
+      "methods": {
+        "KKT": {
+          "time": 21.71245789527893,
+          "nodes": 1524,
+          "status": "infeasible",
+          "objective": null,
+          "bilevel_feasible": null,
+          "gap": null
+        },
+        "Enumeration": {
+          "status": "optimal",
+          "objective": 0.0,
+          "proved_optimal": true,
+          "lower_bound": 0.0,
+          "time": 12.518704891204834,
+          "nodes": 0,
+          "iterations": 1,
+          "gap": 0.0
+        }
+      }
+    },
+    {
+      "name": "enigma-0.900000",
+      "known_obj": 0.0,
+      "methods": {
+        "KKT": {
+          "time": 28.904344081878662,
+          "nodes": 1208,
+          "status": "infeasible",
+          "objective": null,
+          "bilevel_feasible": null,
+          "gap": null
+        },
+        "Enumeration": {
+          "status": "optimal",
+          "objective": 0.0,
+          "proved_optimal": true,
+          "lower_bound": 1.0,
+          "time": 26.90349793434143,
+          "nodes": 0,
+          "iterations": 1,
+          "gap": 0.0
+        }
+      }
+    },
+    {
+      "name": "miblp_20_20_50_0110_5_8",
+      "known_obj": -936.0,
+      "methods": {
+        "KKT": {
+          "time": 5.656810998916626,
+          "nodes": 317,
+          "status": "optimal",
+          "objective": -927.0,
+          "bilevel_feasible": true,
+          "gap": 0.009615384615384616
+        },
+        "Enumeration": {
+          "status": "optimal",
+          "objective": -936.0,
+          "proved_optimal": true,
+          "lower_bound": -935.0,
+          "time": 2.6802380084991455,
+          "nodes": 0,
+          "iterations": 1,
+          "gap": 0.0
+        }
+      }
+    },
+    {
+      "name": "miblp_20_20_50_0110_5_20",
+      "known_obj": -438.0,
+      "methods": {
+        "KKT": {
+          "time": 3.922139883041382,
+          "nodes": 433,
+          "status": "optimal",
+          "objective": -412.0,
+          "bilevel_feasible": true,
+          "gap": 0.0593607305936073
+        },
+        "Enumeration": {
+          "status": "feasible",
+          "objective": -428.0,
+          "proved_optimal": false,
+          "lower_bound": -499.0,
+          "time": 60.01680111885071,
+          "nodes": 0,
+          "iterations": 21,
+          "gap": 0.0228310502283105
+        }
+      }
+    },
+    {
+      "name": "miblp_20_20_50_0110_10_10",
+      "known_obj": -441.0,
+      "methods": {
+        "KKT": {
+          "time": 60.020862102508545,
+          "nodes": 7813,
+          "status": "time_limit",
+          "objective": -238.0,
+          "bilevel_feasible": false,
+          "gap": 0.4603174603174603
+        },
+        "Enumeration": {
+          "status": "feasible",
+          "objective": 19.0,
+          "proved_optimal": false,
+          "lower_bound": -702.0,
+          "time": 60.07043933868408,
+          "nodes": 0,
+          "iterations": 14,
+          "gap": 1.0430839002267573
+        }
+      }
+    },
+    {
+      "name": "miblp_20_20_50_0110_15_7",
+      "known_obj": -471.0,
+      "methods": {
+        "KKT": {
+          "time": 10.984825849533081,
+          "nodes": 1316,
+          "status": "optimal",
+          "objective": -342.0,
+          "bilevel_feasible": true,
+          "gap": 0.27388535031847133
+        },
+        "Enumeration": {
+          "status": "feasible",
+          "objective": -415.0,
+          "proved_optimal": false,
+          "lower_bound": -759.0,
+          "time": 60.014561891555786,
+          "nodes": 0,
+          "iterations": 15,
+          "gap": 0.11889596602972399
+        }
+      }
+    },
+    {
+      "name": "miblp_20_20_50_0110_15_2",
+      "known_obj": -645.0,
+      "methods": {
+        "KKT": {
+          "time": 4.1452531814575195,
+          "nodes": 584,
+          "status": "optimal",
+          "objective": -575.0,
+          "bilevel_feasible": true,
+          "gap": 0.10852713178294573
+        },
+        "Enumeration": {
+          "status": "feasible",
+          "objective": -575.0,
+          "proved_optimal": false,
+          "lower_bound": -864.0,
+          "time": 60.0360209941864,
+          "nodes": 0,
+          "iterations": 11,
+          "gap": 0.10852713178294573
+        }
+      }
+    },
+    {
+      "name": "miblp_20_20_50_0110_15_3",
+      "known_obj": -593.0,
+      "methods": {
+        "KKT": {
+          "time": 60.03529214859009,
+          "nodes": 8232,
+          "status": "time_limit",
+          "objective": -514.0,
+          "bilevel_feasible": false,
+          "gap": 0.13322091062394603
+        },
+        "Enumeration": {
+          "status": "feasible",
+          "objective": -337.0,
+          "proved_optimal": false,
+          "lower_bound": -805.0000000000002,
+          "time": 60.10415697097778,
+          "nodes": 0,
+          "iterations": 14,
+          "gap": 0.4317032040472175
+        }
+      }
+    },
+    {
+      "name": "miblp_20_20_50_0110_10_2",
+      "known_obj": -659.0,
+      "methods": {
+        "KKT": {
+          "time": 60.00806927680969,
+          "nodes": 14513,
+          "status": "time_limit",
+          "objective": -252.0,
+          "bilevel_feasible": true,
+          "gap": 0.6176024279210925
+        },
+        "Enumeration": {
+          "status": "feasible",
+          "objective": -634.0,
+          "proved_optimal": false,
+          "lower_bound": -689.0,
+          "time": 60.00043511390686,
+          "nodes": 0,
+          "iterations": 23,
+          "gap": 0.03793626707132018
+        }
+      }
+    },
+    {
+      "name": "miblp_20_20_50_0110_15_5",
+      "known_obj": -379.0,
+      "methods": {
+        "KKT": {
+          "time": 60.040712118148804,
+          "nodes": 11120,
+          "status": "time_limit",
+          "objective": -322.0,
+          "bilevel_feasible": false,
+          "gap": 0.1503957783641161
+        },
+        "Enumeration": {
+          "status": "feasible",
+          "objective": -59.99999999999999,
+          "proved_optimal": false,
+          "lower_bound": -794.0,
+          "time": 60.32405090332031,
+          "nodes": 0,
+          "iterations": 19,
+          "gap": 0.841688654353562
+        }
+      }
+    },
+    {
+      "name": "miblp_20_20_50_0110_5_15",
+      "known_obj": -617.0,
+      "methods": {
+        "KKT": {
+          "time": 2.722978115081787,
+          "nodes": 109,
+          "status": "optimal",
+          "objective": -589.0,
+          "bilevel_feasible": true,
+          "gap": 0.04538087520259319
+        },
+        "Enumeration": {
+          "status": "feasible",
+          "objective": -598.0,
+          "proved_optimal": false,
+          "lower_bound": -714.0,
+          "time": 60.00217914581299,
+          "nodes": 0,
+          "iterations": 11,
+          "gap": 0.03079416531604538
+        }
+      }
+    },
+    {
+      "name": "miblp_20_20_50_0110_5_12",
+      "known_obj": -854.0,
+      "methods": {
+        "KKT": {
+          "time": 0.6431961059570312,
+          "nodes": 36,
+          "status": "optimal",
+          "objective": -851.0,
+          "bilevel_feasible": true,
+          "gap": 0.00351288056206089
+        },
+        "Enumeration": {
+          "status": "optimal",
+          "objective": -854.0,
+          "proved_optimal": true,
+          "lower_bound": -853.0,
+          "time": 0.9080312252044678,
+          "nodes": 0,
+          "iterations": 1,
+          "gap": 0.0
+        }
+      }
+    },
+    {
+      "name": "miblp_20_20_50_0110_5_13",
+      "known_obj": -519.0,
+      "methods": {
+        "KKT": {
+          "time": 0.5364410877227783,
+          "nodes": 1,
+          "status": "optimal",
+          "objective": -519.0,
+          "bilevel_feasible": true,
+          "gap": 0.0
+        },
+        "Enumeration": {
+          "status": "feasible",
+          "objective": -519.0,
+          "proved_optimal": false,
+          "lower_bound": -745.0,
+          "time": 60.21480202674866,
+          "nodes": 0,
+          "iterations": 16,
+          "gap": 0.0
+        }
+      }
+    },
+    {
+      "name": "miblp_20_20_50_0110_10_3",
+      "known_obj": -618.0,
+      "methods": {
+        "KKT": {
+          "time": 3.276721715927124,
+          "nodes": 575,
+          "status": "optimal",
+          "objective": -596.0,
+          "bilevel_feasible": true,
+          "gap": 0.03559870550161812
+        },
+        "Enumeration": {
+          "status": "feasible",
+          "objective": -596.0,
+          "proved_optimal": false,
+          "lower_bound": -648.0,
+          "time": 60.19690704345703,
+          "nodes": 0,
+          "iterations": 14,
+          "gap": 0.03559870550161812
+        }
+      }
+    },
+    {
+      "name": "miblp_20_20_50_0110_5_10",
+      "known_obj": -340.0,
+      "methods": {
+        "KKT": {
+          "time": 9.084501028060913,
+          "nodes": 2170,
+          "status": "optimal",
+          "objective": -196.0,
+          "bilevel_feasible": true,
+          "gap": 0.4235294117647059
+        },
+        "Enumeration": {
+          "status": "optimal",
+          "objective": -340.0,
+          "proved_optimal": true,
+          "lower_bound": -340.0,
+          "time": 28.01187491416931,
+          "nodes": 0,
+          "iterations": 15,
+          "gap": 0.0
+        }
+      }
+    },
+    {
+      "name": "miblp_20_20_50_0110_15_1",
+      "known_obj": -450.0,
+      "methods": {
+        "KKT": {
+          "time": 0.9185059070587158,
+          "nodes": 111,
+          "status": "optimal",
+          "objective": -438.0,
+          "bilevel_feasible": true,
+          "gap": 0.02666666666666667
+        },
+        "Enumeration": {
+          "status": "feasible",
+          "objective": -438.0,
+          "proved_optimal": false,
+          "lower_bound": -823.0,
+          "time": 60.145402908325195,
+          "nodes": 0,
+          "iterations": 15,
+          "gap": 0.02666666666666667
+        }
+      }
+    },
+    {
+      "name": "miblp_20_20_50_0110_5_9",
+      "known_obj": -877.0,
+      "methods": {
+        "KKT": {
+          "time": 1.2041740417480469,
+          "nodes": 74,
+          "status": "optimal",
+          "objective": -849.0,
+          "bilevel_feasible": true,
+          "gap": 0.03192702394526796
+        },
+        "Enumeration": {
+          "status": "optimal",
+          "objective": -877.0,
+          "proved_optimal": true,
+          "lower_bound": -876.0000000000055,
+          "time": 3.98008394241333,
+          "nodes": 0,
+          "iterations": 2,
+          "gap": 0.0
+        }
+      }
+    },
+    {
+      "name": "miblp_20_20_50_0110_10_6",
+      "known_obj": -731.0,
+      "methods": {
+        "KKT": {
+          "time": 25.508572101593018,
+          "nodes": 2762,
+          "status": "optimal",
+          "objective": -704.0,
+          "bilevel_feasible": true,
+          "gap": 0.036935704514363885
+        },
+        "Enumeration": {
+          "status": "feasible",
+          "objective": -704.0,
+          "proved_optimal": false,
+          "lower_bound": -949.0,
+          "time": 60.01101493835449,
+          "nodes": 0,
+          "iterations": 17,
+          "gap": 0.036935704514363885
+        }
+      }
+    },
+    {
+      "name": "miblp_20_20_50_0110_5_5",
+      "known_obj": -392.0,
+      "methods": {
+        "KKT": {
+          "time": 3.8064591884613037,
+          "nodes": 845,
+          "status": "optimal",
+          "objective": -353.0,
+          "bilevel_feasible": true,
+          "gap": 0.09948979591836735
+        },
+        "Enumeration": {
+          "status": "optimal",
+          "objective": -392.0,
+          "proved_optimal": true,
+          "lower_bound": -383.0,
+          "time": 1.6498949527740479,
+          "nodes": 0,
+          "iterations": 1,
+          "gap": 0.0
+        }
+      }
+    },
+    {
+      "name": "miblp_20_20_50_0110_5_16",
+      "known_obj": -833.0,
+      "methods": {
+        "KKT": {
+          "time": 6.327678918838501,
+          "nodes": 757,
+          "status": "optimal",
+          "objective": -783.0,
+          "bilevel_feasible": true,
+          "gap": 0.060024009603841535
+        },
+        "Enumeration": {
+          "status": "feasible",
+          "objective": -783.0,
+          "proved_optimal": false,
+          "lower_bound": -854.0,
+          "time": 60.057847023010254,
+          "nodes": 0,
+          "iterations": 16,
+          "gap": 0.060024009603841535
+        }
+      }
+    },
+    {
+      "name": "miblp_20_20_50_0110_5_18",
+      "known_obj": -386.0,
+      "methods": {
+        "KKT": {
+          "time": 2.118144989013672,
+          "nodes": 288,
+          "status": "optimal",
+          "objective": -275.0,
+          "bilevel_feasible": true,
+          "gap": 0.28756476683937826
+        },
+        "Enumeration": {
+          "status": "optimal",
+          "objective": -386.0,
+          "proved_optimal": true,
+          "lower_bound": -380.0,
+          "time": 0.44942426681518555,
+          "nodes": 0,
+          "iterations": 1,
+          "gap": 0.0
+        }
+      }
+    },
+    {
+      "name": "miblp_20_20_50_0110_10_7",
+      "known_obj": -683.0,
+      "methods": {
+        "KKT": {
+          "time": 1.3447778224945068,
+          "nodes": 207,
+          "status": "optimal",
+          "objective": -663.0,
+          "bilevel_feasible": true,
+          "gap": 0.029282576866764276
+        },
+        "Enumeration": {
+          "status": "feasible",
+          "objective": -663.0,
+          "proved_optimal": false,
+          "lower_bound": -1061.0,
+          "time": 60.0463502407074,
+          "nodes": 0,
+          "iterations": 14,
+          "gap": 0.029282576866764276
+        }
+      }
+    },
+    {
+      "name": "miblp_20_20_50_0110_10_8",
+      "known_obj": -667.0,
+      "methods": {
+        "KKT": {
+          "time": 60.09634804725647,
+          "nodes": 8266,
+          "status": "time_limit",
+          "objective": -606.0,
+          "bilevel_feasible": false,
+          "gap": 0.09145427286356822
+        },
+        "Enumeration": {
+          "status": "feasible",
+          "objective": -470.0,
+          "proved_optimal": false,
+          "lower_bound": -726.0,
+          "time": 60.00054883956909,
+          "nodes": 0,
+          "iterations": 19,
+          "gap": 0.29535232383808097
+        }
+      }
+    },
+    {
+      "name": "miblp_20_20_50_0110_10_1",
+      "known_obj": -359.0,
+      "methods": {
+        "KKT": {
+          "time": 19.772123098373413,
+          "nodes": 2771,
+          "status": "optimal",
+          "objective": -277.0,
+          "bilevel_feasible": true,
+          "gap": 0.22841225626740946
+        },
+        "Enumeration": {
+          "status": "feasible",
+          "objective": -277.0,
+          "proved_optimal": false,
+          "lower_bound": -755.0,
+          "time": 59.202656984329224,
+          "nodes": 0,
+          "iterations": 15,
+          "gap": 0.22841225626740946
+        }
+      }
+    },
+    {
+      "name": "miblp_20_20_50_0110_15_4",
+      "known_obj": -441.0,
+      "methods": {
+        "KKT": {
+          "time": 60.00447225570679,
+          "nodes": 12926,
+          "status": "time_limit",
+          "objective": -272.3243243243243,
+          "bilevel_feasible": false,
+          "gap": 0.3824845253416682
+        },
+        "Enumeration": {
+          "status": "feasible",
+          "objective": -158.0,
+          "proved_optimal": false,
+          "lower_bound": -616.0,
+          "time": 60.07995009422302,
+          "nodes": 0,
+          "iterations": 17,
+          "gap": 0.6417233560090703
+        }
+      }
+    },
+    {
+      "name": "miblp_20_20_50_0110_10_9",
+      "known_obj": -256.0,
+      "methods": {
+        "KKT": {
+          "time": 3.9005281925201416,
+          "nodes": 878,
+          "status": "optimal",
+          "objective": -205.0,
+          "bilevel_feasible": true,
+          "gap": 0.19921875
+        },
+        "Enumeration": {
+          "status": "feasible",
+          "objective": -205.0,
+          "proved_optimal": false,
+          "lower_bound": -386.0,
+          "time": 59.40660500526428,
+          "nodes": 0,
+          "iterations": 23,
+          "gap": 0.19921875
+        }
+      }
+    },
+    {
+      "name": "miblp_20_20_50_0110_5_6",
+      "known_obj": -1061.0,
+      "methods": {
+        "KKT": {
+          "time": 3.4526238441467285,
+          "nodes": 398,
+          "status": "optimal",
+          "objective": -1047.0,
+          "bilevel_feasible": true,
+          "gap": 0.013195098963242224
+        },
+        "Enumeration": {
+          "status": "feasible",
+          "objective": -1047.0,
+          "proved_optimal": false,
+          "lower_bound": -1142.0,
+          "time": 60.102044343948364,
+          "nodes": 0,
+          "iterations": 12,
+          "gap": 0.013195098963242224
+        }
+      }
+    },
+    {
+      "name": "lseu-0.100000",
+      "known_obj": 1120.0,
+      "methods": {
+        "KKT": {
+          "time": 6.866780996322632,
+          "nodes": 57,
+          "status": "optimal",
+          "objective": 1155.0,
+          "bilevel_feasible": true,
+          "gap": 0.03125
+        },
+        "Enumeration": {
+          "status": "optimal",
+          "objective": 1120.0,
+          "proved_optimal": true,
+          "lower_bound": 1128.0,
+          "time": 37.47172784805298,
+          "nodes": 0,
+          "iterations": 2,
+          "gap": 0.0
+        }
+      }
+    },
+    {
+      "name": "lseu-0.900000",
+      "known_obj": 5838.0,
+      "methods": {
+        "KKT": {
+          "time": 16.83609700202942,
+          "nodes": 535,
+          "status": "infeasible",
+          "objective": null,
+          "bilevel_feasible": null,
+          "gap": null
+        },
+        "Enumeration": {
+          "status": "feasible",
+          "objective": 5838.0,
+          "proved_optimal": false,
+          "lower_bound": 1194.0,
+          "time": 60.000590801239014,
+          "nodes": 0,
+          "iterations": 5,
+          "gap": 0.0
+        }
+      }
+    },
+    {
+      "name": "T1-1-3",
+      "known_obj": -189.0,
+      "methods": {
+        "KKT": {
+          "time": 1.2103078365325928,
+          "nodes": 1,
+          "status": "optimal",
+          "objective": -166.0,
+          "bilevel_feasible": true,
+          "gap": 0.12169312169312169
+        },
+        "Enumeration": {
+          "status": "feasible",
+          "objective": -189.0,
+          "proved_optimal": false,
+          "lower_bound": -205.0,
+          "time": 59.40642023086548,
+          "nodes": 0,
+          "iterations": 42,
+          "gap": 0.0
+        }
+      }
+    },
+    {
+      "name": "T1-1-2",
+      "known_obj": -127.0,
+      "methods": {
+        "KKT": {
+          "time": 5.493160963058472,
+          "nodes": 60,
+          "status": "optimal",
+          "objective": -121.0,
+          "bilevel_feasible": true,
+          "gap": 0.047244094488188976
+        },
+        "Enumeration": {
+          "status": "feasible",
+          "objective": -121.0,
+          "proved_optimal": false,
+          "lower_bound": -150.0,
+          "time": 59.429808139801025,
+          "nodes": 0,
+          "iterations": 15,
+          "gap": 0.047244094488188976
+        }
+      }
+    },
+    {
+      "name": "T1-1-1",
+      "known_obj": -119.0,
+      "methods": {
+        "KKT": {
+          "time": 12.321472883224487,
+          "nodes": 174,
+          "status": "optimal",
+          "objective": -109.0,
+          "bilevel_feasible": true,
+          "gap": 0.08403361344537816
+        },
+        "Enumeration": {
+          "status": "feasible",
+          "objective": -113.0,
+          "proved_optimal": false,
+          "lower_bound": -125.0,
+          "time": 59.93633508682251,
+          "nodes": 0,
+          "iterations": 14,
+          "gap": 0.05042016806722689
+        }
+      }
+    },
+    {
+      "name": "T1-6-2",
+      "known_obj": -137.0,
+      "methods": {
+        "KKT": {
+          "time": 2.7893309593200684,
+          "nodes": 28,
+          "status": "optimal",
+          "objective": -106.0,
+          "bilevel_feasible": true,
+          "gap": 0.22627737226277372
+        },
+        "Enumeration": {
+          "status": "feasible",
+          "objective": -129.0,
+          "proved_optimal": false,
+          "lower_bound": -176.0,
+          "time": 60.28057312965393,
+          "nodes": 0,
+          "iterations": 31,
+          "gap": 0.058394160583941604
+        }
+      }
+    },
+    {
+      "name": "stein27-0.100000",
+      "known_obj": 18.0,
+      "methods": {
+        "KKT": {
+          "time": 2.9922831058502197,
+          "nodes": 151,
+          "status": "optimal",
+          "objective": 18.0,
+          "bilevel_feasible": true,
+          "gap": 0.0
+        },
+        "Enumeration": {
+          "status": "optimal",
+          "objective": 18.0,
+          "proved_optimal": true,
+          "lower_bound": 17.999999999999996,
+          "time": 2.1440489292144775,
+          "nodes": 0,
+          "iterations": 0,
+          "gap": 0.0
+        }
+      }
+    },
+    {
+      "name": "stein27-0.500000",
+      "known_obj": 19.0,
+      "methods": {
+        "KKT": {
+          "time": 0.30330491065979004,
+          "nodes": 1,
+          "status": "optimal",
+          "objective": 19.0,
+          "bilevel_feasible": true,
+          "gap": 0.0
+        },
+        "Enumeration": {
+          "status": "feasible",
+          "objective": 19.0,
+          "proved_optimal": false,
+          "lower_bound": 17.999999999999993,
+          "time": 60.05785584449768,
+          "nodes": 0,
+          "iterations": 3,
+          "gap": 0.0
+        }
+      }
+    },
+    {
+      "name": "stein27-0.900000",
+      "known_obj": 24.0,
+      "methods": {
+        "KKT": {
+          "time": 0.008569002151489258,
+          "nodes": 0,
+          "status": "optimal",
+          "objective": 24.0,
+          "bilevel_feasible": true,
+          "gap": 0.0
+        },
+        "Enumeration": {
+          "status": "optimal",
+          "objective": 24.0,
+          "proved_optimal": true,
+          "lower_bound": 18.0,
+          "time": 39.73610806465149,
+          "nodes": 0,
+          "iterations": 8,
+          "gap": 0.0
+        }
+      }
+    }
+  ]
+}
