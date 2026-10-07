@@ -54,15 +54,6 @@ version = "0.1.0"
 edition = "2021"
 publish = false
 
-# Examples depend on multiple crates
-[[example]]
-name = "knapsack_interdiction"
-path = "examples/knapsack_interdiction.rs"
-
-[[example]]
-name = "toll_pricing"
-path = "examples/toll_pricing.rs"
-
 [[bench]]
 name = "bilevel_bench"
 harness = false
