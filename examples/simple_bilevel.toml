@@ -15,7 +15,7 @@
 
 [problem]
 name = "simple_bilevel_lp"
-description = "A small bilevel LP from introductory examples (Dempe 2002, §1.2)"
+description = "A small bilevel LP with one leader and one follower variable"
 type = "bilevel-lp"
 
 [leader]
