@@ -51,6 +51,3 @@ results/
 
 # Logs
 logs/*.log
-groundings.json
-fabrications.json
-hallucinations.json
